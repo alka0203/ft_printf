@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:40:18 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/02 18:57:49 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:31:37 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 int ft_printf(const char *letter, ...)
 {
     va_list char_check, char_copy;
-    char    c, printC;
-    char    *s, return_list;
-    char    *value;
-    int     i;
+    int     i, returnValue;
 
     i = 0;
     va_start(char_check, letter);
@@ -29,33 +26,37 @@ int ft_printf(const char *letter, ...)
         if (letter[i] == '%')
         {
             if (letter[i++] == 'c')
-                ft_putchar(va_arg(char_check, char));
+                returnValue = ft_putchar(va_arg(char_check, int));
             else if (letter[i++] == 's')
-                ft_putstr(va_arg(char_check, char *));
+                returnValue = ft_putstr(va_arg(char_check, char *));
             else if (letter[i++] == 'p')
-                ft_puthexnbr(va_arg(char_check, void *));
+                returnValue = ft_putnbrbase(va_arg(char_check, int), "0123456789abcdef");
             else if (letter[i++] == 'd')
-                ft_putnbr(va_arg(char_check, int));
+                returnValue = ft_putnbrbase(va_arg(char_check, int), "0123456789");
             else if (letter[i++] == 'i')
-                ft_putnbr(va_arg(char_check, int));
+                returnValue = ft_putnbrbase(va_arg(char_check, int), "0123456789");
             else if (letter[i++] == 'u')
-                ft_putnbr(va_arg(char_check, unsigned int));
+                returnValue = ft_putnbrbase(va_arg(char_check, unsigned int), "0123456789");
             else if (letter[i++] == 'x')
-                ft_puthexnbr(va_arg(char_check, int));
+                returnValue = ft_putnbrbase(va_arg(char_check, int), "0123456789abcdef");
             else if (letter[i++] == 'X')
-                ft_puthexnbr(va_arg(char_check, int));
+                returnValue = ft_putnbrbase(va_arg(char_check, int), "0123456789ABCDEF");
             else if (letter[i++] == '%')
-                ft_putchar(va_arg(char_check, char));
+                returnValue = ft_putchar(va_arg(char_check, char));
         }
         else
-            ft_putchar(letter[i]);
+            return (ft_putchar(letter[i]));
         i++;
+        return (returnValue);
     }
     va_end(char_copy);
 }
 
 int main()
 {
-    printf("%x", 9);
+    int x;
+
+    x = 2;
+    printf("%p", &x);
     //ft_printf("%s", "lala");
 }
