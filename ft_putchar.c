@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:33:04 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/03 20:25:45 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/06 16:22:14 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int    ft_putchar(char c)
 {
-    return(write(1, &c, 1));
+    int i;
+    i = 1;
+    write(1, &c, 1);
+    return (i);
 }

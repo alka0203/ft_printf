@@ -6,17 +6,24 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:33:57 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/02 17:00:48 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/06 16:21:05 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void    ft_putstr(char *str)
+#include <unistd.h>
+int    ft_putstr(char *str)
 {
-    while (str)
+  int i;
+  i = 0;
+  if (!str)
+  {
+    write(1, "(null)", 6);
+    return (6);
+  }
+    while (str[i])
     {
-        write(1, &*str, 1);
-        str++;
+        write(1, &str[i], 1);
+        i++;
     }
+    return (i);
 }
