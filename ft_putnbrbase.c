@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:18:20 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/06 19:37:11 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/07 19:53:15 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,80 @@
 #include <stdio.h>
 #include <string.h>
 
-int    ft_putchar(char c)
+int	p_len(int n)
 {
-    int i;
-    i = 1;
-    write(1, &c, 1);
-    return (i);
+	int	i;
+
+	i = 0;
+    if (n < 0)
+		i++;
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
-int    ft_putnbrbase(int n, char *base)
+// int    ft_putnbrbase(long n, char *base)
+// {
+//     int len;
+//     int i;
+    
+//     i = 0;
+//     i = p_strlen(n);
+//     len = strlen(base);
+//     if (n == 0)
+// 	{
+// 		putchar('0');
+// 		return (1);
+// 	}
+//     // if (n < 0)
+//     // {
+//     //     //base = (char *)ft_putstr("ffffffff");
+//     //     n = 4294967296;
+//     //     //n = ft_putnbrbase(4294967296, "0123456789abcdef");
+//     //     n--;
+//     //     //base--;
+//     // }
+//     if (n < 0)
+// 	{
+// 		ft_putchar('-');
+//         i++;
+// 	}
+//     if (n < 10)
+//     {
+//         ft_putchar(base[n]);
+//         return (i);
+//     }
+//     else
+//         ft_putnbrbase(n / len, base);
+//     ft_putchar(base[n % len]);
+//     return (i);
+// }
+
+int    ft_putnbrbase(long n, char *base)
 {
     int len;
     int i;
     
-    i = strlen((char *)n);
+    i = p_len(n);
     len = strlen(base);
+    if (!n)
+        return (0);
+    if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+    if (n < 0)
+    {
+        //base = (char *)ft_putstr("ffffffff");
+        n = 4294967296;
+        //n = ft_putnbrbase(4294967296, "0123456789abcdef");
+        n--;
+        //base--;
+    }
     if (n < 0)
     {
         ft_putchar('-');
@@ -46,10 +105,4 @@ int    ft_putnbrbase(int n, char *base)
     }
     ft_putchar(base[n % len]);
     return (i);
-}
-
-int main()
-{
-    int x = ft_putnbrbase(1234, "0123456789");
-    printf("\n%d", x);
 }

@@ -6,13 +6,13 @@
 #    By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:31:46 by asanthos          #+#    #+#              #
-#    Updated: 2021/11/03 17:26:58 by asanthos         ###   ########.fr        #
+#    Updated: 2021/11/07 17:02:49 by asanthos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchar.c ft_putnbrbase.c ft_putstr.c
+SRCS = ft_printf.c ft_putchar.c ft_putnbrbase.c ft_putstr.c ft_putnbr.c ft_putpointer.c ft_putunsigned.c
 
 INCLUDES = ft_printf.h
 
