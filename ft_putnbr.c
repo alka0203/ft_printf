@@ -6,24 +6,15 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:21:52 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/07 19:44:04 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/08 19:43:41 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <string.h>
-
-// int    ft_putchar(char c)
-// {
-//     int i;
-//     i = 1;
-//     write(1, &c, 1);
-//     return (i);
-// }
 
 int	len(int n)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (n < 0)
@@ -36,11 +27,17 @@ int	len(int n)
 	return (i);
 }
 
+int	len_min(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	return (11);
+}
+
 int	ft_putnbr(int nb)
 {
-    int i;
+	int		i;
 
-    i = 0;
 	i = len(nb);
 	if (nb == 0)
 	{
@@ -48,10 +45,7 @@ int	ft_putnbr(int nb)
 		return (1);
 	}
 	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (11);
-	}
+		return (len_min(nb));
 	if (nb < 0)
 	{
 		ft_putchar('-');
@@ -65,11 +59,5 @@ int	ft_putnbr(int nb)
 	else
 		ft_putnbr(nb / 10);
 	ft_putnbr(nb % 10);
-    return (i);
+	return (i);
 }
-
-// int main()
-// {
-// 	int x = ft_putnbr(0);
-// 	printf("%d", x);
-// }
