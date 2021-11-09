@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:06:55 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/08 20:22:09 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:00:10 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		find_len(unsigned int n, char *base);
 int		ft_putstr(char *str);
 int		ft_putnbr(int nb);
 int		ft_putpointer(unsigned long long n);
-int		ft_putunsigned(long nb);
+int		ft_putunsigned(unsigned long long nb);
 int		ft_strlen(char *str);
 
 #endif

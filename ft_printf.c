@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:40:18 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/08 21:44:15 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:21:48 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int	ft_printf(const char *letter, ...)
 
 int main()
 {
-	// int x = ft_printf("%%%x%%\n", 590);
-	// printf("ft_printf = %d\n", x);
-	// int y = printf("%%%x%%\n", 590);
-	// printf("printf = %d", y);
-	ft_printf("FT: %u, %u, %u, %u\n", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
-	printf("PT: %u, %u, %u, %u\n", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
+	int x = ft_printf("%u\n", 0);
+	printf("ft_printf = %d\n", x);
+	int y = printf("%u\n", 0);
+	printf("printf = %d", y);
+	// ft_printf("FT: %u, %u, %u, %u\n", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
+	// printf("PT: %u, %u, %u, %u\n", (unsigned int)429896724, 0, 32, (unsigned int)4294967295);
 }

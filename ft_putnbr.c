@@ -6,7 +6,7 @@
 /*   By: asanthos <asanthos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:21:52 by asanthos          #+#    #+#             */
-/*   Updated: 2021/11/08 19:43:41 by asanthos         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:21:32 by asanthos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,6 @@ int	ft_putnbr(int nb)
 	int		i;
 
 	i = len(nb);
-	if (nb == 0)
-	{
-		putchar('0');
-		return (1);
-	}
 	if (nb == -2147483648)
 		return (len_min(nb));
 	if (nb < 0)
@@ -54,6 +49,8 @@ int	ft_putnbr(int nb)
 	if (nb < 10)
 	{
 		ft_putchar(nb + 48);
+		if (nb == 0)
+			return (1);
 		return (i);
 	}
 	else
